@@ -53,6 +53,14 @@ fi
 ln -s .dotfiles/zshrc $HOME/.zshrc
 echo "Creating symlink to $HOME/.zshrc"
 
+# symlink gitignore
+if [ -L $HOME/.gitignore ]; then
+    echo ".gitignore symlink exists. Removing."
+    rm $HOME/.gitignore
+fi
+ln -s .dotfiles/gitignore $HOME/.gitignore
+echo "Creating symlink to $HOME/.gitignore"
+
 # symlink gitconfig
 if [ -L $HOME/.gitconfig ]; then
     echo ".gitconfig symlink exists. Removing."
@@ -60,5 +68,13 @@ if [ -L $HOME/.gitconfig ]; then
 fi
 ln -s .dotfiles/gitconfig $HOME/.gitconfig
 echo "Creating symlink to $HOME/.gitconfig"
+
+# symlink gitmodules
+if [ -L $HOMES/.gitmodules ]; then
+    echo ".gitmodules symlink exists. Removing."
+    rm $HOMES/.gitmodules
+fi
+ln -s .dotfiles/gitmodules $HOME/.gitmodules
+echo "Creating symlink to $HOME/.gitmodules"
 
 echo "Finished."
