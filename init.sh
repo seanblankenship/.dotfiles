@@ -74,7 +74,7 @@ if [ -L $HOMES/.gitmodules ]; then
     echo ".gitmodules symlink exists. Removing."
     rm $HOMES/.gitmodules
 fi
-ln -s .dotfiles/gitmodules $HOME/.gitmodules
+ln -s .dotfiles/.gitmodules $HOME/.gitmodules
 echo "Creating symlink to $HOME/.gitmodules"
 
 echo "Finished."
