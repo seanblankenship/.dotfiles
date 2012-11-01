@@ -33,4 +33,5 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-export PATH=/usr/local/git/bin:$PATH
+#aliases
+alias ls='ls -la'

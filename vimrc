@@ -1,3 +1,5 @@
+call pathogen#infect()
+
 set nocompatible
 
 " Get that filetype stuff happening
@@ -52,10 +54,8 @@ set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
 " Set the status line
 set stl=%f\ %m\ %r\ Line:\ %l/%L[%p%%]\ Col:\ %c\ Buf:\ #%n\ [%b][0x%B]
 
-" Maximize on open; on works for windows
-au GUIEnter * simalt ~x
-
 " set the colorscheme
+let g:solarized_termcolors=256
 set background=dark
 colorscheme solarized
 
