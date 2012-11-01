@@ -53,4 +53,12 @@ fi
 ln -s .dotfiles/zshrc $HOME/.zshrc
 echo "Creating symlink to $HOME/.zshrc"
 
+# symlink gitconfig
+if [ -L $HOME/.gitconfig ]; then
+    echo ".gitconfig symlink exists. Removing."
+    rm $HOME/.gitconfig
+fi
+ln -s .dotfiles/gitconfig $HOME/.gitconfig
+echo "Creating symlink to $HOME/.gitconfig"
+
 echo "Finished."
