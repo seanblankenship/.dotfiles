@@ -34,6 +34,6 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 #aliases
-alias ls='ls -la'
+alias lsla='ls -la'
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
