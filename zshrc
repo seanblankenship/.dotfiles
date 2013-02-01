@@ -35,5 +35,9 @@ source $ZSH/oh-my-zsh.sh
 
 #aliases
 alias lsla='ls -la'
+alias sites='cd /Applications/MAMP/htdocs/_sites'
+alias htdocs='cd /Applications/MAMP/htdocs'
+alias dotfiles='cd ~/.dotfiles'
+alias home=$HOME
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
