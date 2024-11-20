@@ -83,7 +83,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# export MANPATH="/usr/local/man:$MANPATH"
+export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -115,6 +115,8 @@ source $ZSH/oh-my-zsh.sh
 
 #### Start extra customizations #####
 
+export PATH=/usr/local/bin:$PATH
+
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
 
@@ -128,3 +130,4 @@ export FZF_DEFAULT_OPTS=" \
 
 # Set up zoxide
 eval "$(zoxide init zsh)"
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
