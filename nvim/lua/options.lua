@@ -1,21 +1,30 @@
-vim.cmd("set expandtab")
-vim.cmd("set tabstop=2")
-vim.cmd("set softtabstop=2")
-vim.cmd("set shiftwidth=2")
+vim.g.mapleader = " "
+vim.g.maplocallader = " "
 
-vim.g.mapleader=" "
+vim.cmd("set expandtab")
+vim.cmd("set shiftwidth=2")
+vim.cmd("set softtabstop=2")
+vim.cmd("set tabstop=2")
+
 vim.g.have_nerd_font = true
 
--- line numbers
-vim.opt.number = true
-vim.opt.relativenumber = true
+vim.opt.breakindent = true
+vim.opt.clipboard = "unnamedplus"
+vim.opt.cmdheight = 1
 vim.opt.cursorline = true
+vim.opt.cursorlineopt = "both"
+vim.opt.mouse = "a"
+vim.opt.mousemoveevent = true
+vim.opt.ruler = true
+vim.opt.smoothscroll = true
+vim.opt.number = true
+vim.opt.numberwidth = 4
 vim.opt.scrolloff = 10
-
--- **hides**
-vim.opt.mouse = 'a'
-
--- syncs clipboard between nvim and os
-vim.schedule(function()
-  vim.opt.clipboard = 'unnamedplus'
-end)
+vim.opt.smartcase = true
+vim.opt.smartindent = true
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+vim.opt.swapfile = false
+vim.opt.relativenumber = true
+vim.opt.title = true
+vim.opt.titlelen = 0
