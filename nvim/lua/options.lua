@@ -19,7 +19,7 @@ vim.cmd("set tabstop=2")
 local options = {
     breakindent = true,
     clipboard = "unnamedplus",
-    cmdheight = 1,
+    --cmdheight = 1,
     cursorline = true,
     cursorlineopt = "both",
     mouse = "a",
@@ -41,4 +41,3 @@ local options = {
 for k, v in pairs(options) do
     vim.opt[k] = v
 end
-

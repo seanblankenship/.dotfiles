@@ -121,6 +121,8 @@ export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
 #### Set up some aliases to make life easier ####
 
+export PATH="/opt/shell-color-scripts/:$PATH"
+
 # cd is burned into my brain
 alias cd="z $1"
 
