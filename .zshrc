@@ -129,3 +129,5 @@ alias syncnvim="~/.dotfiles/scripts/syncnvim.sh"
 alias n="nvim $1"
 alias vi=nvim
 alias vim=nvim
+
+source ~/.dotfiles/.servers.sshfs

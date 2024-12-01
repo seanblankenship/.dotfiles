@@ -8,6 +8,8 @@
 .ssh
 .env
 
+.servers.sshfs
+
 TODO
 _TODO
 

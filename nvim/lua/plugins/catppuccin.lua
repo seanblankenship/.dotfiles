@@ -1,6 +1,6 @@
-return { 
-  "catppuccin/nvim", 
-  name = "catppuccin", 
+return {
+  "catppuccin/nvim",
+  name = "catppuccin",
   priority = 1000,
   integrations = {
     neotree = true,
@@ -12,7 +12,4 @@ return {
   config = function()
     vim.cmd.colorscheme "catppuccin"
   end
-
 }
-
-
