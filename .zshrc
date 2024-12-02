@@ -132,4 +132,9 @@ alias n="nvim $1"
 alias vi=nvim
 alias vim=nvim
 
-source ~/.dotfiles/.servers.sshfs
+# i don't like the ~ key
+alias reloadz="source ~/.zshrc"
+
+# mounting and unmounting filesystems with sshfs / macFUSE
+alias umservers="~/.dotfiles/scripts/umservers.sh"
+source ~/.dotfiles/.sshfs
