@@ -8,13 +8,9 @@
 .ssh
 .env
 
-.servers.sshfs
+.sshfs
 
-TODO
-_TODO
-
-NOTES
-_NOTES
+TODO.md
 
 _TEST
 _TESTS
