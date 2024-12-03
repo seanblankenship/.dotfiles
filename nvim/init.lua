@@ -14,4 +14,5 @@ vim.opt.rtp:prepend(lazypath)
 local opts = {}
 
 require("options")
+require("autocmds.scss")
 require("lazy").setup("plugins", opts)
