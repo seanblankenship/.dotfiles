@@ -137,4 +137,5 @@ alias reloadz="source ~/.zshrc"
 
 # mounting and unmounting filesystems with sshfs / macFUSE
 alias umservers="~/.dotfiles/scripts/umservers.sh"
+alias cleandir="~/.dotfiles/scripts/cleandir.sh"
 source ~/.dotfiles/.sshfs
