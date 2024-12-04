@@ -39,7 +39,7 @@ return {
     lazygit = { enabled = true },
     notifier = {
       enabled = true,
-      timeout = 3000,
+      timeout = 10000,
     },
     quickfile = { enabled = true },
     statuscolumn = { enabled = true },
