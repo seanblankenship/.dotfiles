@@ -57,42 +57,10 @@ alias n="nvim $1"
 alias vi=nvim
 alias vim=nvim
 
-
-# i needed to set aliases somewhere
-alias pt="~/.dotfiles/scripts/print_tree.sh" # pt because ptree bc precision tree bc i couldnt think of anything. isn't the file called print_tree.sh? yes. and?
-alias newes6="~/.dotfiles/scripts/new_es6_app.sh" # new es6 app
-
-
 # i don't like the ~ key
 alias reloadz="source ~/.zshrc"
-
-# copies a folder with instructions to make setup slightly quicker
-alias buildapp="/Users/sean/Projects/apps/.new_app/build.sh"
 
 # mounting and unmounting filesystems with sshfs / macFUSE
 alias umservers="~/.dotfiles/scripts/umservers.sh"
 alias cleandir="~/.dotfiles/scripts/cleandir.sh"
 source ~/.dotfiles/.sshfs
-
-# Created by `pipx` on 2025-01-03 14:42:08
-export PATH="$PATH:/Users/sean/.local/bin"
-
-# tasks tui app
-export PATH="$PATH:$HOME/Projects/golang/dailylog"
-export PATH="$HOME/.composer/vendor/bin:$PATH"
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/opt/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/opt/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/opt/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
