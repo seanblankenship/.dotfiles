@@ -57,10 +57,41 @@ alias n="nvim $1"
 alias vi=nvim
 alias vim=nvim
 
+# create an alias to open my workspace directory on my nas
+alias workspace="open smb://sean@192.168.86.47/workspace"
+
 # i don't like the ~ key
 alias reloadz="source ~/.zshrc"
 
 # mounting and unmounting filesystems with sshfs / macFUSE
+
+alias connect="$HOME/.dotfiles/scripts/connect_to_remote_servers.sh"
+
 alias umservers="~/.dotfiles/scripts/umservers.sh"
 alias cleandir="~/.dotfiles/scripts/cleandir.sh"
 source ~/.dotfiles/.sshfs
+
+alias genai="~/.dotfiles/scripts/genai.sh"
+
+# Image Generation Project Aliases
+alias imggen="/Users/sean/Projects/image-gen-v2/venv/bin/streamlit run /Users/sean/Projects/image-gen-v2/app/main_webui.py"
+alias imggencli="/Users/sean/Projects/image-gen-v2/venv/bin/python /Users/sean/Projects/image-gen-v2/app/main.py"
+
+# Alias for stable diffusion image generation
+alias sdwebui="cd ~/Projects/ai/stable-diffusion-webui && source venv310/bin/activate && python launch.py --enable-insecure-extension-access --skip-torch-cuda-test --no-half --api --listen --port 7860"
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/opt/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+export TERM=xterm-256color

@@ -1,5 +1,6 @@
 .idea/
 .directory/
+.logs/
 
 .DS_Store
 
