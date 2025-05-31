@@ -41,12 +41,33 @@ local options = {
   swapfile = false,             -- no swp files
   tabstop = 2,                  -- consistent tabs
   termguicolors = true,         -- enable 24-bit color
+  timeoutlen = 500,             -- time before timeout (default 1000)
   title = true,                 -- filename in the terminal window
   titlelen = 0,                 -- full filename in title
   wrap = true,                  -- turn on linewrapping
   undofile = true,              -- persistent undo across session
-  updatetime = 300,             -- time before CursorHold fires
+  updatetime = 100,             -- faster CursorHold actions (default 4000)
 }
 for k, v in pairs(options) do
   vim.opt[k] = v
+end
+
+-- performance overrides for SSHFS remote editing to help with lag
+if os.getenv("NVIM_SSHFS") == "1" then
+  local remote_options = {
+    cursorline = false,      -- avoid extra redraws
+    relativenumber = false,  -- cuts down redraw on line movement
+    wrap = false,            -- avoids line wrapping 
+    undofile = false,        -- don't persist undo over networked FS
+    swapfile = false,        -- already false, but defensively repeat
+    smoothscroll = false,    -- anything to help performance
+    mousemoveevent = false,  -- avoid constant redraws on mouse move
+    showmode = false,        -- skip unnecessary UI updates
+    cmdheight = 1,           -- limit command area redraw (if unset)
+  }
+  for k, v in pairs(remote_options) do
+    vim.opt[k] = v
+  end
+  vim.cmd("set noshowcmd")   -- don't show partial commands
+  vim.cmd("set lazyredraw")  -- delay redraw in macros and mappings
 end

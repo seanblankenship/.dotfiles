@@ -3,62 +3,62 @@ return {
   version = '*',
   config = function()
     require('mini.icons').setup({
-      config = {
-        default = "",  -- Generic file icon (can be replaced with any icon)
-        directory = "",  -- Folder icon
-        extension = {
-          txt = "",  -- Text files
-          lua = "",  -- Lua files
-          py = "",   -- Python files
-          js = "",   -- JavaScript files
-          html = "", -- HTML files
-          css = "",  -- CSS files
-        },
-        file = {
-          default = "",  -- Default icon for files
-          lua = "",      -- Lua files
-          python = "",   -- Python files
-          markdown = "", -- Markdown files
-          json = "",     -- JSON files
-          yaml = "ﯧ",     -- YAML files
-        },
-        filetype = {
-          lua = "",      -- Lua
-          python = "",   -- Python
-          javascript = "", -- JavaScript
-          html = "",     -- HTML
-          css = "",      -- CSS
-          markdown = "", -- Markdown
-        },
-        lsp = {
-          Text = "",    -- Text
-          Method = "ƒ",  -- Method
-          Function = "", -- Function
-          Constructor = "", -- Constructor
-          Field = "",   -- Field
-          Variable = "", -- Variable
-          Class = "",   -- Class
-          Interface = "ﰮ", -- Interface
-          Module = "",  -- Module
-          Property = "", -- Property
-          Unit = "",    -- Unit
-          Value = "",   -- Value
-          Enum = "",    -- Enum
-          EnumMember = "", -- Enum Member
-          Constant = "",  -- Constant
-          Struct = "פּ",   -- Struct
-          Event = "",    -- Event
-          Operator = "", -- Operator
-          TypeParameter = "", -- Type Parameter
-        },
-        os = {
-          unix = "",    -- Unix icon
-          windows = "犯", -- Windows icon
-          mac = "",     -- macOS icon
-        },
+      default = { icon = "" },
+      directory = { icon = "" },
+      extension = {
+        txt  = { icon = "" },
+        lua  = { icon = "" },
+        py   = { icon = "" },
+        js   = { icon = "" },
+        html = { icon = "" },
+        css  = { icon = "" },
+      },
+      file = {
+        lua      = { icon = "" },
+        python   = { icon = "" },
+        markdown = { icon = "" },
+        json     = { icon = "" },
+        yaml     = { icon = "ﯧ" },
+      },
+      filetype = {
+        lua        = { icon = "" },
+        python     = { icon = "" },
+        javascript = { icon = "" },
+        html       = { icon = "" },
+        css        = { icon = "" },
+        markdown   = { icon = "" },
+      },
+      lsp = {
+        Text          = { icon = "" },
+        Method        = { icon = "ƒ" },
+        Function      = { icon = "" },
+        Constructor   = { icon = "" },
+        Field         = { icon = "" },
+        Variable      = { icon = "" },
+        Class         = { icon = "" },
+        Interface     = { icon = "ﰮ" },
+        Module        = { icon = "" },
+        Property      = { icon = "" },
+        Unit          = { icon = "" },
+        Value         = { icon = "" },
+        Enum          = { icon = "" },
+        EnumMember    = { icon = "" },
+        Constant      = { icon = "" },
+        Struct        = { icon = "פּ" },
+        Event         = { icon = "" },
+        Operator      = { icon = "" },
+        TypeParameter = { icon = "" },
+      },
+      os = {
+        unix    = { icon = "" },
+        windows = { icon = "犯" },
+        mac     = { icon = "" },
       },
     })
-    require("mini.completion").setup()
+
+    -- Optional: disable this if you're using LSP-based completion
+    -- require("mini.completion").setup()
+
     require("mini.align").setup()
     require("mini.pairs").setup()
     require("mini.surround").setup()

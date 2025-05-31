@@ -9,130 +9,77 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        eunsure_installed = { "lua_ls", "ts_ls", "intelephense", "html", "goimports", "gofumpt", "gomodifytags", "impl", "delve"}
+        ensure_installed = {
+          "lua_ls",
+          "ts_ls",
+          "html", 
+          "intelephense",
+          "cssls",
+          "emmet_language_server",
+        },
       })
     end,
   },
   {
     "neovim/nvim-lspconfig",
+    enabled = function()
+      return os.getenv("NVIM_SSHFS") ~= "1"
+    end,
     config = function()
-      local lspconfig = require ("lspconfig")
+    local lspconfig = require("lspconfig")
+    local util = require("lspconfig.util")
 
-      -- emmet
-      lspconfig.emmet_language_server.setup({
-        filetypes = { "php", "css", "html", "javascript", "javascriptreact", "less", "sass", "scss", "pug", "typescriptreact" },
-      })
-
-      -- go
-      lspconfig.gopls.setup({
-        servers = {
-          gopls = {
-            settings = {
-              gopls = {
-                gofumpt = true,
-                codelenses = {
-                  gc_details = false,
-                  generate = true,
-                  regenerate_cgo = true,
-                  run_govulncheck = true,
-                  test = true,
-                  tidy = true,
-                  upgrade_dependency = true,
-                  vendor = true,
-                },
-                hints = {
-                  assignVariableTypes = true,
-                  compositeLiteralFields = true,
-                  compositeLiteralTypes = true,
-                  constantValues = true,
-                  functionTypeParameters = true,
-                  parameterNames = true,
-                  rangeVariableTypes = true,
-                },
-                analyses = {
-                  fieldalignment = true,
-                  nilness = true,
-                  unusedparams = true,
-                  unusedwrite = true,
-                  useany = true,
-                },
-                usePlaceholders = true,
-                completeUnimported = true,
-                staticcheck = true,
-                directoryFilters = { "-.git", "-.vscode", "-.idea", "-.vscode-test", "-node_modules" },
-                semanticTokens = true,
-              },
-            },
-          },
-        },
-        setup = {
-          gopls = function(_, opts)
-            -- workaround for gopls not supporting semanticTokensProvider
-            -- https://github.com/golang/go/issues/54531#issuecomment-1464982242
-            LazyVim.lsp.on_attach(function(client, _)
-              if not client.server_capabilities.semanticTokensProvider then
-                local semantic = client.config.capabilities.textDocument.semanticTokens
-                client.server_capabilities.semanticTokensProvider = {
-                  full = true,
-                  legend = {
-                    tokenTypes = semantic.tokenTypes,
-                    tokenModifiers = semantic.tokenModifiers,
-                  },
-                  range = true,
-                }
-              end
-            end, "gopls")
-            -- end workaround
-          end,
-        },
-      })
-
-      -- html
-      lspconfig.html.setup({})
-
-      -- lua
-      lspconfig.lua_ls.setup({})
-
-      -- php
-      lspconfig.intelephense.setup({
-        root_dir = function()
-          return vim.fn.expand '$HOME'
-        end,
-        -- root_dir = function(pattern)
-        --   — Add wp-config to root-dir
-        --   local cwd = vim.loop.cwd()
-        --   local util = require ‘lspconfig.util’
-        --   local root = util.root_pattern(‘composer.json’, ‘.git’, ‘wp-config.php’)(pattern)
-        --
-        --   — prefer cwd if root is a descendant
-        --   return util.path.is_descendant(cwd, root) and cwd or root
-        -- end,
-        settings = {
-
-          intelephense = {
-            -- stubs = {
-            --   'wordpress',
-            --   'wordpress-stubs',
-            --   'acf-pro-stubs',
-            -- },
-            environment = {
-              shortOpenTag = true,
-              -- includePaths = {
-              --   require('lspconfig.util').path.join(vim.fn.stdpath 'data', 'mason', 'bin'),
-              --   '~/.config/composer/vendor/php-stubs/*',
-              -- },
-            },
-          },
-        },
-      })
-
-      -- typescript
+      -- TypeScript / JavaScript
       lspconfig.ts_ls.setup({})
 
+      -- HTML
+      lspconfig.html.setup({})
+
+      -- CSS and SCSS
+      lspconfig.cssls.setup({
+        filetypes = { "css", "scss", "less" },
+      })
+
+      -- PHP
+      lspconfig.intelephense.setup({
+        root_dir = util.root_pattern("composer.json", ".git", "wp-config.php"),
+        settings = {
+          intelephense = {
+            environment = {
+              shortOpenTag = true,
+            },
+          },
+        },
+      })
+
+      -- Emmet for HTML/PHP/CSS
+      lspconfig.emmet_language_server.setup({
+        filetypes = {
+          "php",
+          "css",
+          "scss",
+          "html",
+          "javascript",
+          "javascriptreact",
+          "typescriptreact",
+          "vue",
+        },
+      })
+
+      -- Lua
+      lspconfig.lua_ls.setup({
+        settings = {
+          Lua = {
+            diagnostics = { globals = { "vim" } },
+          },
+        },
+      })
+
+      -- LSP Keymaps (global)
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
       vim.keymap.set("n", "<leader>d", vim.lsp.buf.definition, {})
       vim.keymap.set("n", "<leader>r", vim.lsp.buf.references, {})
-      vim.keymap.set({"n", "v"}, "<leader>ca", vim.lsp.buf.code_action, {})
+      vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
       vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {})
     end,
   },

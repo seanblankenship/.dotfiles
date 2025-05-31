@@ -1,6 +1,6 @@
 return {
   "nvim-lualine/lualine.nvim",
-  dependancies = {
+  dependencies = {
     "nvim-tree/nvim-web-devicons"
   },
   config = function()
@@ -14,15 +14,11 @@ return {
           statusline = {},
           winbar = {},
         },
-        ignore_focus = {},
         always_divide_middle = true,
-        always_show_tabline = true,
-        globalstatus = false,
+        globalstatus = true,
         refresh = {
-          statusline = 100,
-          tabline = 100,
-          winbar = 100,
-        }
+          statusline = 200,
+        },
       },
       sections = {
         lualine_a = {'mode'},
@@ -32,19 +28,18 @@ return {
         lualine_y = {'progress', 'location'},
         lualine_z = {
           { 'diagnostics',
-            sources = {'nvim_diagnostic', 'nvim_lsp'},
+            sources = {'nvim_lsp'},
             sections = {'error', 'warn', 'info', 'hint'},
             diagnostics_color = {
-              -- Same values as the general color option can be used here.
-              error = 'DiagnosticError', -- Changes diagnostics' error color.
-              warn  = 'DiagnosticWarn',  -- Changes diagnostics' warn color.
-              info  = 'DiagnosticInfo',  -- Changes diagnostics' info color.
-              hint  = 'DiagnosticHint',  -- Changes diagnostics' hint color.
+              error = 'DiagnosticError',
+              warn  = 'DiagnosticWarn',
+              info  = 'DiagnosticInfo',
+              hint  = 'DiagnosticHint',
             },
             symbols = {error = 'E', warn = 'W', info = 'I', hint = 'H'},
-            colored = true,           -- Displays diagnostics status in color if set to true.
-            update_in_insert = false, -- Update diagnostics in insert mode.
-            always_visible = false,   -- Show diagnostics even if there are none.
+            colored = true,
+            update_in_insert = false,
+            always_visible = false,
           },
         },
       },
@@ -56,10 +51,6 @@ return {
         lualine_y = {},
         lualine_z = {}
       },
-      tabline = {},
-      winbar = {},
-      inactive_winbar = {},
-      extensions = {}
     }
   end
 }
