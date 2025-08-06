@@ -66,6 +66,7 @@ alias reloadz="source ~/.zshrc"
 # mounting and unmounting filesystems with sshfs / macFUSE
 
 alias connect="$HOME/.dotfiles/scripts/connect_to_remote_servers.sh"
+alias findsite="$HOME/.dotfiles/scripts/findsite.sh"
 
 alias umservers="~/.dotfiles/scripts/umservers.sh"
 alias cleandir="~/.dotfiles/scripts/cleandir.sh"
